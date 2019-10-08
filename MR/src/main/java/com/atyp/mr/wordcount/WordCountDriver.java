@@ -44,7 +44,7 @@ public class WordCountDriver {
 
         // 7.提交Job
         //job.submit();
-        boolean result = job.waitForCompletion(true);
+                                        boolean result = job.waitForCompletion(true);
 
         System.exit(result ? 0 : 1);
     }
