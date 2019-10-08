@@ -34,9 +34,13 @@ public class WordCountDriver {
         job.setOutputValueClass(IntWritable.class);
 
         // 如果不设置InputFormat，它默认用的是TextInputFormat.class
-        job.setInputFormatClass(CombineTextInputFormat.class);
+        //job.setInputFormatClass(CombineTextInputFormat.class);
         // 虚拟存储切片最大值设置为 4M
-        CombineTextInputFormat.setMaxInputSplitSize(job, 4194304);
+        //CombineTextInputFormat.setMaxInputSplitSize(job, 4194304);
+
+        //如果 NumReduceTasks 的个数你不设置，那默认是1(任何数%1=0)，那么分区就没有任何意义
+        job.setNumReduceTasks(2);
+
 
         // 6.设置输入路径和输出路径
         FileInputFormat.setInputPaths(job, new Path(args[0]));
