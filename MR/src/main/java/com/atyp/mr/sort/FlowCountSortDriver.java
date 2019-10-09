@@ -13,7 +13,7 @@ import java.io.IOException;
 public class FlowCountSortDriver {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         //输入输出路径
-        args = new String[]{"D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\input_06_FlowCountSort", "D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\output_06_FlowCountSort"};
+        args = new String[]{"D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\input_06_FlowCountSort", "D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\output_06_FlowCountSort_quSort"};
 
         // 1.获取配置信息，或者job对象实例
         Configuration configuration = new Configuration();
@@ -33,6 +33,9 @@ public class FlowCountSortDriver {
         // 4.指定最终输出的数据的kv类型
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(FlowBean.class);
+
+        job.setPartitionerClass(ProvincePartitioner.class);
+        job.setNumReduceTasks(5);
 
         // 5.指定job的输入原始文件所在目录
         FileInputFormat.setInputPaths(job, new Path(args[0]));
