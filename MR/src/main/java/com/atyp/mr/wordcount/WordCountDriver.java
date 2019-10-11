@@ -44,8 +44,11 @@ public class WordCountDriver {
         //如果 NumReduceTasks 的个数你不设置，那默认是1(任何数%1=0)，那么分区就没有任何意义
         //job.setNumReduceTasks(2);
 
+        // 指定需要使用 combiner ，以及用哪个类作为 combiner 的逻辑
+        job.setCombinerClass(WordCountCombiner.class);
+
         //关联合并类
-        job.setCombinerClass(WordCountReducer.class);
+        //job.setCombinerClass(WordCountReducer.class);
 
         // 6.设置输入路径和输出路径
         FileInputFormat.setInputPaths(job, new Path(args[0]));
