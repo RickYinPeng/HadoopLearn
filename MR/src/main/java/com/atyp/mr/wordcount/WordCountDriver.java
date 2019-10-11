@@ -14,6 +14,9 @@ import java.io.IOException;
 
 public class WordCountDriver {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+
+        args = new String[]{"D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\input_01","D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\output_01"};
+
         Configuration conf = new Configuration();
         // 1.获取Job对象
         Job job = Job.getInstance(conf);
@@ -39,8 +42,10 @@ public class WordCountDriver {
         //CombineTextInputFormat.setMaxInputSplitSize(job, 4194304);
 
         //如果 NumReduceTasks 的个数你不设置，那默认是1(任何数%1=0)，那么分区就没有任何意义
-        job.setNumReduceTasks(2);
+        //job.setNumReduceTasks(2);
 
+        //关联合并类
+        job.setCombinerClass(WordCountReducer.class);
 
         // 6.设置输入路径和输出路径
         FileInputFormat.setInputPaths(job, new Path(args[0]));
