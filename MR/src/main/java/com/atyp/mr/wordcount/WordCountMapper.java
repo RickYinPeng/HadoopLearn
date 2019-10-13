@@ -5,7 +5,9 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
+import javax.print.attribute.standard.JobStateReasons;
 import java.io.IOException;
+import java.util.HashSet;
 
 // map阶段
 // KEYIN    输入数据的key(偏移量)
@@ -36,6 +38,8 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
             //IntWritable v = new IntWritable();
             //v.set(1);
             context.write(k, v);
+            HashSet s = new HashSet();
+
         }
     }
 }
