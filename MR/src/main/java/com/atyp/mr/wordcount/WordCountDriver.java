@@ -4,6 +4,8 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.compress.BZip2Codec;
+import org.apache.hadoop.io.compress.CompressionCodec;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.CombineTextInputFormat;
@@ -15,9 +17,14 @@ import java.io.IOException;
 public class WordCountDriver {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
-        args = new String[]{"D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\input_01","D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\output_01"};
+        args = new String[]{"D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\input_01", "D:\\WorkSpace\\IdeaWorpace\\hadoop_input_output\\output_01_02"};
 
         Configuration conf = new Configuration();
+        // 开启map端输出压缩
+        conf.setBoolean("mapreduce.map.output", true);
+        // 设置map端输出压缩方式
+        conf.setClass("mapreduce.map.output.compress.codec", BZip2Codec.class, CompressionCodec.class);
+
         // 1.获取Job对象
         Job job = Job.getInstance(conf);
 
@@ -45,10 +52,16 @@ public class WordCountDriver {
         //job.setNumReduceTasks(2);
 
         // 指定需要使用 combiner ，以及用哪个类作为 combiner 的逻辑
-        job.setCombinerClass(WordCountCombiner.class);
+        //job.setCombinerClass(WordCountCombiner.class);
 
         //关联合并类
         //job.setCombinerClass(WordCountReducer.class);
+
+
+        // 设置reduce端输出压缩开启
+        FileOutputFormat.setCompressOutput(job, true);
+        // 设置压缩的方式
+        FileOutputFormat.setOutputCompressorClass(job, BZip2Codec.class);
 
         // 6.设置输入路径和输出路径
         FileInputFormat.setInputPaths(job, new Path(args[0]));
