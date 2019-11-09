@@ -7,7 +7,7 @@ import org.apache.hadoop.mapreduce.Partitioner;
  * Partitioner<Text, FlowBean>
  * 这两个泛型时map阶段的输出
  */
-public class ProvincePartitioner extends Partitioner<Text, FlowBean> {
+public class  ProvincePartitioner extends Partitioner<Text, FlowBean> {
 
     @Override
     public int getPartition(Text key, FlowBean value, int numPartitions) {
