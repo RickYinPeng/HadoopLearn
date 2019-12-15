@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74959774-f899-43e8-8691-49eb84f14fc1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atyp/mr/flowsum/ProvincePartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atyp/mr/flowsum/ProvincePartitioner.java" afterDir="false" />
-    </list>
+    <list default="true" id="74959774-f899-43e8-8691-49eb84f14fc1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,10 +45,16 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/OrderTest" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -210,6 +214,10 @@
       <workItem from="1572063801417" duration="717000" />
       <workItem from="1572069886738" duration="3522000" />
       <workItem from="1572084408101" duration="758000" />
+      <workItem from="1573306002170" duration="721000" />
+      <workItem from="1574571403793" duration="112000" />
+      <workItem from="1576303656451" duration="2577000" />
+      <workItem from="1576381198043" duration="89000" />
     </task>
     <task id="LOCAL-00001" summary="hadoop源码追踪">
       <created>1569497712528</created>
